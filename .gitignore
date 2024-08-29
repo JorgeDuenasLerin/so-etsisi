@@ -6,6 +6,8 @@ log_e9.bin
 !/imagen/minix3hd.7z
 
 /trabajo/**
+!/trabajo/
 !/trabajo/bin/
+!/trabajo/bin/*
 
 /utilidades/qemu/

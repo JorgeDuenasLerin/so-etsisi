@@ -1,0 +1,11 @@
+/imagen/**
+!/imagen/minix3hd.7z
+log_e9.bin
+
+/imagen/**
+!/imagen/minix3hd.7z
+
+/trabajo/**
+!/trabajo/bin/
+
+/utilidades/qemu/

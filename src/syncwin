@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Descarga el zip con el directorio trabajo.
+# pone los scripts en el bin del usuario.
+# borra las modificaciones locales.
+
+# Guardamos el directorio actual para volver a él al final
+wd=$(pwd)
+
+cd
+
+# OJO! asumo que todo se escribe en vscode
+echo "Borrando trabajo y bin"
+rm -r trabajo
+rm -r bin
+
+echo "Creando trabajo y bin"
+mkdir -p bin
+mkdir -p trabajo
+
+echo "Descargando trabajo"
+# QEMU IPs
+wget 10.0.2.2:8842 -O /tmp/t.tmp
+
+echo "Descomprimiendo trabajo"
+unzip /tmp/t.tmp
+
+echo "Borrando zip"
+rm /tmp/t.tmp
+
+echo "Copiando scripts a bin"
+cp trabajo/bin/* bin/
+
+echo "Dando permisos de ejecución a los scripts"
+chmod u+x bin/*
+
+echo "Volviendo al directorio original"
+cd $wd

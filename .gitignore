@@ -11,3 +11,6 @@ log_e9.bin
 !/trabajo/bin/*
 
 /utilidades/qemu/
+
+# Tras la subida inicial, no es necesario registrar los cambios aquí.
+id.txt

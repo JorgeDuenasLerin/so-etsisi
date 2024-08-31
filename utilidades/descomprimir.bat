@@ -4,7 +4,7 @@
 set /p ID=<id.txt
 
 @rem Verificamos que hay una matrícula
-if not %ID%=="TODO\n" goto label_id_ok
+if x%ID:TODO=%==x%ID% goto label_id_ok
     echo Debes modificar id.txt con tu identificador
     goto end
 :label_id_ok

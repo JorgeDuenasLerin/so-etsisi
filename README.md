@@ -15,6 +15,20 @@ Listado de cambios:
     - Instalado unzip en la imagen original.
     - Script de sincronización en la imagen en /bin/syncwin
 
+## Inicio rápido
+
+Para comenzar a trabajar con las herramientas hay que establecer un **identificador** para la imagen y **descomprimir**. Esto solo se hará la primera vez
+
+1. ```echo "abcd" > id.txt```
+2. ```utilidades\descomprimir.bat```
+
+En las siguientes ejecuciones tendremos que:
+
+1. Iniciar el servidor httptar: ```utilidades\httptar.exe```
+2. Iniciar qemu con la imagen: ```utilidades\minix.bat```
+
+
+
 ## Tareas en imagen
 
 ### Cómo deshabilitar DHCP

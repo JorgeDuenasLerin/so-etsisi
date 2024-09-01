@@ -19,21 +19,46 @@ Listado de cambios:
 
 Para comenzar a trabajar con las herramientas hay que establecer un **identificador** para la imagen y **descomprimir**. Esto solo se hará la primera vez
 
-1. ```echo "abcd" > id.txt```
+1. ```echo abcd > id.txt``` (Cuidado con los espacios extra en windows)
 2. ```utilidades\descomprimir.bat```
 
 En las siguientes ejecuciones tendremos que:
 
-1. Iniciar el servidor httptar: ```utilidades\httptar.exe```
+1. En otra terminal, iniciar el servidor httptar: ```utilidades\httptar.exe```
 2. Iniciar qemu con la imagen: ```utilidades\minix.bat```
 
+## Prácticas
 
+Desde windows, el código de las practicas se escribirá en ```trabajo```.
+
+```
+trabajo\
+ \- bin
+ \- prc1
+ \- prc2
+ \- ...
+ \- prcn
+```
+
+Desde minix, se puede ejecutar el comand ```syncwin``` (código disponible en ```src```). Este comando:
+
+1. Descarga el contenido de ```trabajo``` y lo dejará en la home del usuario.
+2. Hace disponible los scripts en ```bin``` para el usuario actual.
+3. Intenta volver al directorio de trabajo.
+
+Si en alguna práctica es necesario hacer alguna tarea de descarga de información o construir algún esquema de directorios se puede automatizar dejando el escript en ```bin```
+
+Ejemplo:
+
+```bin\inicioprc1.sh```
 
 ## Tareas en imagen
 
-### Cómo deshabilitar DHCP
+Esta es la documentación de algunas tareas llevadas a cabo en la imagen original.
 
 > Ya está realizado en la imagen
+
+### Cómo deshabilitar DHCP
 
 ```
 # cat /etc/hosts

@@ -30,6 +30,7 @@ echo N: .\
 
 @rem leeamos su matrícula
 set /p ID=<id.txt
+set "ID=%ID: =%"
 set IMAGE_NAME=minix3hd.%ID%.qcow2
 set USB_MINIX_PATH=.\imagen\%IMAGE_NAME%
 echo %MINIX_PATH%
@@ -56,16 +57,30 @@ if exist %TMP_MINIX_PATH% goto working_img_ok
     goto label_fin_desconectando
 :working_img_ok
 
+@rem Copiamos utilidades a %UTMP% si no existe
+if not exist %UTMP%\utilidades\ goto copy_utils
+    echo Utilidades ya copiadas
+    goto :no_copy_utils
+:copy_utils
+    echo Copiando utilidades a %UTMP%
+    mkdir %UTMP%\utilidades\
+    xcopy /S .\utilidades\ %UTMP%\utilidades\
+:no_copy_utils
+echo Utilidades en la localización correcta.
+
+
 
 echo Todo bien :)
 echo Arrancamos Minix
 
-.\utilidades\qemu\qemu-system-i386w.exe ^
+
+%UTMP%utilidades\qemu\qemu-system-i386w.exe ^
 -cpu "pentium3" ^
 -m 512 ^
 -rtc base=localtime ^
 -hda %TMP_MINIX_PATH% ^
 -netdev user,id=n1,ipv6=off,restrict=off,hostfwd=tcp:127.0.0.1:5522-:22 -device ne2k_pci,netdev=n1,mac=52:54:98:76:54:32
+
 
 @rem Elementos útiles para la configuración de la máquina virtual.
 @rem 

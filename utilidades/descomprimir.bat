@@ -2,6 +2,7 @@
 
 @rem leeamos su matrícula
 set /p ID=<id.txt
+set "ID=%ID: =%"
 
 @rem Verificamos que hay una matrícula
 if x%ID:TODO=%==x%ID% goto label_id_ok

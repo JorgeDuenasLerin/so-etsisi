@@ -22,6 +22,7 @@ if %ERRORLEVEL% == 0 goto htar_ok
 
 echo Estableciendo directorio temporal local
 set UTMP=%tmp%\-so-\
+mkdir %UTMP%
 subst M: %UTMP%
 echo M: %UTMP%
 subst N: .\

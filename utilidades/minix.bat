@@ -78,10 +78,11 @@ echo Arrancamos Minix
 %UTMP%utilidades\qemu\qemu-system-i386w.exe ^
 -cpu "pentium3" ^
 -m 512 ^
+-name %ID% ^
 -rtc base=localtime ^
 -hda %TMP_MINIX_PATH% ^
--netdev user,id=n1,ipv6=off,restrict=off,hostfwd=tcp:127.0.0.1:5522-:22 -device ne2k_pci,netdev=n1,mac=52:54:98:76:54:32
-
+-netdev user,id=n1,ipv6=off,restrict=off,hostfwd=tcp:127.0.0.1:5522-:22 -device ne2k_pci,netdev=n1,mac=52:54:98:76:54:32 ^
+-debugcon file:.\log_e9.bin
 
 @rem Elementos útiles para la configuración de la máquina virtual.
 @rem 

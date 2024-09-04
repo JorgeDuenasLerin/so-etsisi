@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Saca el primer parámetro con mtools a windows:trabajo/out/
+
+mtools copy -v $1 /dev/c0d1p0:

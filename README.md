@@ -86,3 +86,8 @@ UseDNS no
 ### syncwin
 
 Hacer llegar el script syncwin a la máquina, coparlo a /bin/, darle permisos 755 y propietario bin
+
+### minixout
+
+Lo mismo para la herramienta minixout
+

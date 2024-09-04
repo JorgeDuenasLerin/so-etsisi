@@ -17,3 +17,5 @@ log_e9.bin
 id.txt
 
 /src/MINIX3/
+src/minix312ahack/
+/out/

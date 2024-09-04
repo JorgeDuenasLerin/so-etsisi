@@ -74,6 +74,10 @@ if not exist %UTMP%\utilidades\ goto copy_utils
 :no_copy_utils
 echo Utilidades en la localización correcta.
 
+set MINIXOUT=.\out
+if exist %MINIXOUT% goto out_dir_created
+    mkdir %MINIXOUT%
+:out_dir_created
 
 
 echo Todo bien :)
@@ -87,6 +91,7 @@ echo Arrancamos Minix
 -name %ID% ^
 -rtc base=localtime ^
 -hda %TMP_MINIX_PATH% ^
+-drive file=fat:rw:%MINIXOUT%,format=raw,media=disk,cache=none ^
 -netdev user,id=n1,ipv6=off,restrict=off,hostfwd=tcp:127.0.0.1:5522-:22 -device ne2k_pci,netdev=n1,mac=52:54:98:76:54:32 ^
 -debugcon file:.\log_e9.bin
 
@@ -98,7 +103,6 @@ echo Arrancamos Minix
 @rem Abre la imagen para hacer modificaciones
 @rem -hda .\imagen\minix3hd.qcow2 ^
 @rem -hda .\imagen\minix3hd.plot.qcow2 ^
-@rem -hda .\imagen\minix3hd.plot.qcow2 ^
 @rem -hda %TMP_MINIX_PATH% ^
 @rem
 @rem Pruebas
@@ -107,8 +111,7 @@ echo Arrancamos Minix
 @rem -device ne2k_pci,netdev=n1,mac=52:54:98:76:54:32 
 @rem -device ne2k_pci,netdev=net0 ^
 @rem -drive format=raw,file=.\disco.img 
-@rem -drive file=fat:rw:.\Trabajo,format=raw,media=disk,cache=none
-@rem -drive file=fat:rw:.\Trabajo,format=raw,media=disk,cache=none
+@rem -drive file=fat:rw:.\out,format=raw,media=disk,cache=none
 
 echo Has finalizado la ejecución de Minix
 

@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 echo "Hola Minix"

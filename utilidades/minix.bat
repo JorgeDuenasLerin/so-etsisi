@@ -3,8 +3,13 @@
 @rem Se le puede pasar un /P para forzar
 set pregunta=%1
 
+@rem cambio de imagen
+set IMAGENAME=minix3hd.plot
+set IMAGEZIP=%IMAGENAME%.7z
+set IMAGEUNZIP=%IMAGENAME%.qcow2
+
 @rem verificamos las herramientas
-if exist .\utilidades\qemu\qemu-system-i386w.exe if exist .\imagen\minix3hd.qcow2 goto tools_ok
+if exist .\utilidades\qemu\qemu-system-i386w.exe if exist .\imagen\%IMAGEUNZIP% goto tools_ok
     echo ERROR: No se encuentran las herramientas necesarias para arrancar la máquina virtual
     echo Por favor, descomprime las herramientas y la imagen de Minix
     echo .\utilidades\descomprimir.bat
@@ -32,8 +37,8 @@ echo N: .\
 @rem leeamos su matrícula
 set /p ID=<id.txt
 set "ID=%ID: =%"
-set IMAGE_NAME=minix3hd.%ID%.qcow2
-set USB_MINIX_PATH=.\imagen\%IMAGE_NAME%
+set IMAGEFILE=%IMAGENAME%.%ID%.qcow2
+set USB_MINIX_PATH=.\imagen\%IMAGEFILE%
 echo %MINIX_PATH%
 
 
@@ -48,7 +53,7 @@ echo Copiando imagen de trabajo %USB_MINIX_PATH% a %UTMP% (Accesible en M:)
 copy %USB_MINIX_PATH% %UTMP%
 
 :no_copy_to_tmp
-set TMP_MINIX_PATH=%UTMP%%IMAGE_NAME%
+set TMP_MINIX_PATH=%UTMP%%IMAGEFILE%
 
 @rem Verificamos que hay una imagen de trabajo
 if exist %TMP_MINIX_PATH% goto working_img_ok
@@ -75,6 +80,7 @@ echo Todo bien :)
 echo Arrancamos Minix
 
 
+
 %UTMP%utilidades\qemu\qemu-system-i386w.exe ^
 -cpu "pentium3" ^
 -m 512 ^
@@ -91,6 +97,8 @@ echo Arrancamos Minix
 @rem
 @rem Abre la imagen para hacer modificaciones
 @rem -hda .\imagen\minix3hd.qcow2 ^
+@rem -hda .\imagen\minix3hd.plot.qcow2 ^
+@rem -hda .\imagen\minix3hd.plot.qcow2 ^
 @rem -hda %TMP_MINIX_PATH% ^
 @rem
 @rem Pruebas

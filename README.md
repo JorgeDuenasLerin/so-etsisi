@@ -61,6 +61,8 @@ Esta es la documentación de algunas tareas llevadas a cabo en la imagen origina
 ### Cómo deshabilitar DHCP
 
 ```
+# cat /etc/hostname.file
+minix
 # cat /etc/hosts
 10.0.2.15 minix
 # cat /etc/inet.conf
@@ -76,5 +78,11 @@ interface ip0 minix:
 ### Deshabilitar DNS en ssh
 
 ```
+#/usr/local/etc/ssh/sshd_config
+...
 UseDNS no
 ```
+
+### syncwin
+
+Hacer llegar el script syncwin a la máquina, coparlo a /bin/, darle permisos 755 y propietario bin

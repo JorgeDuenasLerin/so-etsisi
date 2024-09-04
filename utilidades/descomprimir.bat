@@ -20,18 +20,21 @@ if exist .\utilidades\qemu goto label_qemu_ok
 
 echo Qemu OK
 
-@rem .\imagen\minix3hd.7z
-@rem .\imagen\minix3hd.qcow2
-@rem .\imagen\minix3hd.%id%.qcow2 Esta será la imagen de trabajo.
-if exist .\imagen\minix3hd.qcow2 goto label_descomprimido
-    .\utilidades\7za.exe -o".\imagen\"  e .\imagen\minix3hd.7z
+@rem cambio de nombre de imagen minix3hd.7z por minix3hd.plot.7z
+
+set IMAGENAME=minix3hd.plot
+set IMAGEZIP=%IMAGENAME%.7z
+set IMAGEUNZIP=%IMAGENAME%.qcow2
+@rem .\imagen\minix3hd.xxx.%id%.qcow2 Esta será la imagen de trabajo.
+if exist .\imagen\%IMAGEUNZIP% goto label_descomprimido
+    .\utilidades\7za.exe -o".\imagen\"  e .\imagen\%IMAGEZIP%
 :label_descomprimido
 
 echo Existe imagen descomprimida. OK
 
-set MINIX_PATH=.\imagen\minix3hd.%ID%.qcow2
+set MINIX_PATH=.\imagen\%IMAGENAME%.%ID%.qcow2
 if exist %MINIX_PATH% goto label_imagen_personal
-    copy .\imagen\minix3hd.qcow2 %MINIX_PATH%
+    copy .\imagen\%IMAGEUNZIP% %MINIX_PATH%
 :label_imagen_personal
 
 echo Existe imagen personal. OK

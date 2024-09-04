@@ -14,3 +14,5 @@ log_e9.bin
 
 # Tras la subida inicial, no es necesario registrar los cambios aquí.
 id.txt
+
+/src/MINIX/*

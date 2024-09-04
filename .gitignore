@@ -4,6 +4,7 @@ log_e9.bin
 
 /imagen/**
 !/imagen/minix3hd.7z
+!/imagen/minix3hd.plot.7z
 
 /trabajo/**
 !/trabajo/

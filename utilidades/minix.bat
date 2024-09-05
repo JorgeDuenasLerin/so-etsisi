@@ -31,7 +31,7 @@ echo M: %RUTATRABAJO%
 set /p ID=<id.txt
 set "ID=%ID: =%"
 set IMAGEFILE=%IMAGENAME%.%ID%.qcow2
-set MINIX_PATH=.\imagen\%IMAGEFILE%
+set MINIX_PATH=M:\imagen\%IMAGEFILE%
 echo Trabajaremos con %MINIX_PATH%
 
 set MINIXOUT=.\out
@@ -42,7 +42,7 @@ if exist %MINIXOUT% goto out_dir_created
 echo Todo bien :)
 echo Arrancamos Minix
 
-%RUTATRABAJO%utilidades\qemu\qemu-system-i386w.exe ^
+M:utilidades\qemu\qemu-system-i386w.exe ^
 -cpu "pentium3" ^
 -m 512 ^
 -name %ID% ^

@@ -1,9 +1,7 @@
 # Variables
 CC = cc
 
-# Regla para compilar todos los .c en archivos sin extensión
-# Usamos $< para referirnos al primer prerequisito (el archivo .c)
-# Usamos $@ para referirnos al archivo objetivo (sin la extensión)
+# No funcionó en Minix. $< $@
 
 all: punteros size 1cadena 2cadena 3cadena 4cadena 5cadena arraypuntero dinamica funcionpuntero aritmeticapuntero estructuras
 
@@ -45,4 +43,6 @@ estructuras: estructuras.c
 
 # Limpieza
 clean:
-	rm -f 3punteros
+	rm -f punteros size 1cadena 2cadena 3cadena 4cadena 5cadena arraypuntero dinamica funcionpuntero aritmeticapuntero estructuras
+
+# Ojo con el final de fichero. A Minix le gusta que haya una línea en blanco al final del fichero.

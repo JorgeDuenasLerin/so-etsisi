@@ -3,6 +3,6 @@
 int main(void)
 {
     /* El preprocesador quita los comentarios */
-    const int var = SIX * 2;
+    const int foo = SIX * 2;
     return 0;
 }

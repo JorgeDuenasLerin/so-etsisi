@@ -17,20 +17,24 @@ struct proceso
     
 }; 
 
-/* función para añadir la información de un proceso al array procesos en la posición ix */
-int anadir_proceso(struct proceso* procesos[], int ix, int pid, char *ejecutable, int estado)
+/* función para añadir la información de un proceso al array procesos
+   en la posición ix */
+int anadir_proceso(struct proceso* procesos[], int ix, int pid,
+                   char *ejecutable, int estado)
 {
     /**** PRÁCTICA ****/
-    /* Declara un puntero a tipo_proceso */
+    /* Declara un puntero a struct proceso */
     
     /* Reserva memoria para guardar la información del nuevo proceso.
        Contempla que puede producirse error en la reserva.
        Devuelve MEM_ERROR
     */
     
-    /* Modifica el valor del pid de la estructura reservada dinámicamente accediendo a través del operador '->' */
+    /* Modifica el valor del pid de la estructura reservada
+       dinámicamente accediendo a través del operador '->' */
     
-    /* Utiliza la función strncpy para copiar el parámetro con la ruta del ejecutable a la estructura */
+    /* Utiliza la función strncpy para copiar el parámetro con la ruta del
+       ejecutable a la estructura */
     
     /* establece su estado */
 
@@ -44,12 +48,14 @@ int anadir_proceso(struct proceso* procesos[], int ix, int pid, char *ejecutable
 void listar_procesos(struct proceso* procesos[])
 {
     /**** PRÁCTICA ****/
-    /* Recorre el array de procesos con for, escribiendo con printf los campos de cada proceso */
+    /* Recorre el array de procesos con for, escribiendo con printf los campos
+       de cada proceso. Si una posición está vacía, imprimir "Vacía" */
 }
 
 /* función para liberar */
 void liberar_procesos(struct proceso* procesos[])
 {
     /**** PRÁCTICA ****/
-    /* Recorre el array de procesos con for liberando la memoria de cada proceso */
+    /* Recorre el array de procesos con for liberando la memoria de cada
+       proceso */
 }

@@ -14,7 +14,8 @@
 extern struct proceso;
 
 /* función para añadir un proceso al array procesos en la posición ix */
-int anadir_proceso(struct proceso* procesos[], int ix, int pid, char ejecutable[MAX_EJECUTABLE], int estado);
+int anadir_proceso(struct proceso* procesos[], int ix, int pid,
+                   char ejecutable[MAX_EJECUTABLE], int estado);
 
 /* función para listar */
 void listar_procesos(struct proceso* procesos[]);

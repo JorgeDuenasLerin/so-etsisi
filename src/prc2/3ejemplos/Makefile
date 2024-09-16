@@ -45,4 +45,4 @@ estructuras: estructuras.c
 clean:
 	rm -f punteros size 1cadena 2cadena 3cadena 4cadena 5cadena arraypuntero dinamica funcionpuntero aritmeticapuntero estructuras
 
-# Ojo con el final de fichero. A Minix le gusta que haya una línea en blanco al final del fichero.
+# Ojo con el final de fichero. Make requiere que haya una línea en blanco al final del fichero.

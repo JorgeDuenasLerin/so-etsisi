@@ -19,3 +19,5 @@ limpiar:
 
 estadisticas: historia.txt
 	$(STAT_COMMAND) historia.txt
+
+# Ojo con el final de fichero. Make requiere que haya una línea en blanco al final del fichero.

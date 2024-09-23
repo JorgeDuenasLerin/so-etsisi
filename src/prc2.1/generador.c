@@ -67,3 +67,9 @@ int total_palabras(void)
 {
 	return gen.total_palabras;
 }
+
+int longitud(void)
+{
+	return gen.longitud;
+}
+

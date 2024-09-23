@@ -39,3 +39,10 @@ extern int genera_palabra(const int pos, char palabra[]);
  * Si no ha sido configurado, el número de palabras que puede generar es 0.
  */
 extern int total_palabras(void);
+
+/**
+ * Devuelve la longitud de las palabras que van a generar.
+ * Si no ha sido configurado, la longitud de las palabras que
+ * puede generar es 0.
+ */
+extern int longitud(void);

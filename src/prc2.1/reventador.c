@@ -3,10 +3,16 @@
 #include <errno.h>
 #include "generador.h"
 
-static int escribir_palabras(const int longitud)
+/**
+ * Muestra todas las palabras que puede genera el generador.
+ * Es importante, para los pasos siguientes, entender cómo se
+ * reserva memoria para recoger la palabra y cómo se libera,
+ * porque será necesario aplicarlo en el paso 5 de la práctica.
+ */
+static int escribir_palabras(void)
 {
 	int i;
-	char* palabra = calloc(longitud+2, sizeof(char));
+	char* const palabra = calloc(longitud()+2, sizeof(char));
 
 	for (i = 0; i < total_palabras(); i++)
 	{
@@ -16,23 +22,27 @@ static int escribir_palabras(const int longitud)
 		}
 		fprintf(stdout, "%s\n", palabra);
 	}
-
 	free(palabra);
 	return OK;
 }
 
+/* Realiza el trabajo del reventador una vez que se ha obtenido la
+ * información necesaria de los argumentos del programa.
+ * Si todo va bien, devuelve OK. En caso contrario devuelve !OK.
+ */
 static int trabajar(const char alfabeto[], const int longitud)
 {
 	if (configura_generador(alfabeto, longitud) != OK)
 	{
 		return !OK;
 	}
-
-	escribir_palabras(longitud);
-
-	return OK;
+	return escribir_palabras();
 }
 
+/**
+ * Muestra un mensaje indicando cómo debe usarse el programa. Si se
+ * modifican los argumentos del programa, hay que modificar esta función.
+ */
 static void uso(const char prog[])
 {
 	fprintf(stderr, "Uso: %s <alfabeto> <longitud>\n", prog);

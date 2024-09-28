@@ -17,7 +17,14 @@ Listado de cambios:
 
 ## Inicio rápido
 
-Para comenzar a trabajar con las herramientas hay que establecer un **identificador** para la imagen y **descomprimir**. Esto solo se hará la primera vez
+Para empezar a trabajar con las herramientas, antes de nada hay que añadir la carpeta a las exclusiones del antivirus de windows. Para ello ejecuta desde la terminal el script `utilidades\excluir.bat`. 
+Se puede ejecutar de 3 formas diferentes:
+
+1. `excluir.bat`: Excluye tu directorio actual de trabajo
+2. `excluir.bat -sd`: Excluye el directorio del script
+3. `excluir.bat absolute_path`: Excluye el directorio que le pases ¡Tiene que ser una ruta absoluta!
+
+Una vez excluido, hay que establecer un **identificador** para la imagen y **descomprimir**. Esto solo se hará la primera vez
 
 1. ```echo abcd > id.txt``` (Cuidado con los espacios extra en windows)
 2. ```utilidades\descomprimir.bat```

@@ -1,14 +1,17 @@
 @echo off
 
 :: Guardar el directorio actual
-set "folder=%~dp0"
-set "folder=%folder:~0,-1%"
+set "folder=%CD%"
 
 :: Comprobar los argumentos
-if "%~1"=="-c" (
-    set "folder=%CD%"
+if "%~1"=="-sd" (
+    set "folder=%~dp0"
 ) else if not "%~1"=="" (
     set "folder=%~1"
+)
+
+if "%folder:~-1%"=="\" (
+    set "folder=%folder:~0,-1%"
 )
 
 :: Comprobar si se esta ejecutando como administrador

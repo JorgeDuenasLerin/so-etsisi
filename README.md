@@ -98,3 +98,26 @@ Hacer llegar el script syncwin a la máquina, coparlo a /bin/, darle permisos 75
 
 Lo mismo para la herramienta minixout
 
+## Curso 24-25
+
+Problemas de permisos al hacer syncwin. Solución:
+
+```
+Windows:
+
+git pull
+
+Minix: ($ o  # no se escriben; el primer chmod solo en necesario si el dir trabajo existe en root)
+
+$ su -
+# chmod -R u+w trabajo
+# syncwin
+
+… salida de syncwin …
+
+# bin/update_tools.sh
+Actualizando syncwin en /bin
+Actualizando permisos de syncwin
+```
+
+Tras estos comando ```syncwin``` verificará que los permisos son correctos.

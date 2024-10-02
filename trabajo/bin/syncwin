@@ -9,6 +9,10 @@ wd=$(pwd)
 
 cd
 
+echo "Revisando permiso"
+chmod -R u+w trabajo
+chmod -R u+w bin
+
 # OJO! asumo que todo se escribe en vscode
 echo "Borrando trabajo y bin"
 rm -r trabajo

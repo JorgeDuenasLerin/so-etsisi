@@ -6,7 +6,7 @@
 typedef unsigned pte_t;
 typedef unsigned pde_t;
 
-#define BIOS_DATE 0x0FFFFF5
+#define BIOS_DATE 0x00FFFF5
 #define CEIL_DIV(x, y) (((x) + (y) - 1) / (y))
 #define MEM_SIZE_MB 128
 
